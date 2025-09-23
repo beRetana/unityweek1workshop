@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
-        public bool controlEnabled = true;
+        public bool controlEnabled = false;
 
         bool jump;
         Vector2 move;
@@ -46,6 +46,15 @@ namespace Platformer.Mechanics
 
         public Bounds Bounds => collider2d.bounds;
 
+        /*
+        CRAZY LITTLE OFFICER FUNCTIONS THAT WE MADE... :-P
+        void moveSide2Side ... wonder what this is for...
+
+        this might be useful...
+        void UpdateJumpState
+        */
+
+
         void Awake()
         {
             health = GetComponent<Health>();
@@ -57,33 +66,35 @@ namespace Platformer.Mechanics
             m_MoveAction = InputSystem.actions.FindAction("Player/Move");
             m_JumpAction = InputSystem.actions.FindAction("Player/Jump");
             
+            
             m_MoveAction.Enable();
             m_JumpAction.Enable();
+
+            
         }
+
+        /* HELP ME! */
 
         protected override void Update()
         {
-            if (controlEnabled)
-            {
-                move.x = m_MoveAction.ReadValue<Vector2>().x;
-                if (jumpState == JumpState.Grounded && m_JumpAction.WasPressedThisFrame())
-                    jumpState = JumpState.PrepareToJump;
-                else if (m_JumpAction.WasReleasedThisFrame())
-                {
-                    stopJump = true;
-                    Schedule<PlayerStopJump>().player = this;
-                }
-            }
-            else
-            {
-                move.x = 0;
-            }
-            UpdateJumpState();
+            
             base.Update();
+
         }
+
+        /*
+        we are NOOOOTTT touching anything below this bro LMAOOOOOO
+        */ 
 
         void UpdateJumpState()
         {
+            /*
+            is this jumping or not?
+            just helps with gravity.
+            i am not paid to do this i dont CARE...
+            six seven...
+            */
+
             jump = false;
             switch (jumpState)
             {
@@ -147,5 +158,22 @@ namespace Platformer.Mechanics
             InFlight,
             Landed
         }
+
+
+        /* eh hee hee~ */
+
+        private void moveSide2Side()
+        {
+            move.x = m_MoveAction.ReadValue<Vector2>().x;
+            if (jumpState == JumpState.Grounded && m_JumpAction.WasPressedThisFrame())
+                jumpState = JumpState.PrepareToJump;
+            else if (m_JumpAction.WasReleasedThisFrame())
+            {
+                stopJump = true;
+                Schedule<PlayerStopJump>().player = this;
+            }
+        }
     }
+
+    
 }

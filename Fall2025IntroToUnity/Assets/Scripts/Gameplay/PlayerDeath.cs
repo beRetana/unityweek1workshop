@@ -10,12 +10,16 @@ namespace Platformer.Gameplay
     /// Fired when the player has died.
     /// </summary>
     /// <typeparam name="PlayerDeath"></typeparam>
+    
     public class PlayerDeath : Simulation.Event<PlayerDeath>
     {
+        
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public override void Execute()
         {
+            // necesasary
+            /*
             var player = model.player;
             if (player.health.IsAlive)
             {
@@ -31,6 +35,8 @@ namespace Platformer.Gameplay
                 player.animator.SetBool("dead", true);
                 Simulation.Schedule<PlayerSpawn>(2);
             }
+            */
         }
+        
     }
 }

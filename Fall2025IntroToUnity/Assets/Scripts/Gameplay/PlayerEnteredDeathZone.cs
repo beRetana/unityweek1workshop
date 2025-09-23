@@ -16,7 +16,9 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
+            /*
             Simulation.Schedule<PlayerDeath>(0);
+            */
         }
     }
 }
