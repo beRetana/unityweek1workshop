@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
-        public bool controlEnabled = false;
+        public bool controlEnabled = true;
 
         bool jump;
         Vector2 move;
@@ -77,8 +77,12 @@ namespace Platformer.Mechanics
 
         protected override void Update()
         {
-            
+            if (controlEnabled)
+            { moveSide2Side(); }
+            else
+            { move.x = 0; }
             base.Update();
+            UpdateJumpState();
 
         }
 

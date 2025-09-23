@@ -10,15 +10,21 @@ namespace Platformer.Mechanics
     /// DeathZone components mark a collider which will schedule a
     /// PlayerEnteredDeathZone event when the player enters the trigger.
     /// </summary>
+    
     public class DeathZone : MonoBehaviour
     {
         void OnTriggerEnter2D(Collider2D collider)
         {
-            var p = collider.gameObject.GetComponent<PlayerController>();
-            if (p != null)
+            
+            var p = collider.gameObject.GetComponent<PlayerController>(); // PLEASE TYPE THIS OUT THIS IS SO IMPORTANT…
+            if (p != null) // get them used to this typing 
             {
+
+                Debug.LogError($"IDIOT...");
+                /*
                 var ev = Schedule<PlayerEnteredDeathZone>();
                 ev.deathzone = this;
+                */
             }
         }
     }
