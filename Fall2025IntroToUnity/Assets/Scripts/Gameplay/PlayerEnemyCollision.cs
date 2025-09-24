@@ -20,9 +20,10 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
-            var willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
+            // i hate using var. it makes code harder to read.
+            // hmmm
 
-            if (willHurtEnemy)
+            if (false)
             {
                 var enemyHealth = enemy.GetComponent<Health>();
                 if (enemyHealth != null)
@@ -31,22 +32,27 @@ namespace Platformer.Gameplay
                     if (!enemyHealth.IsAlive)
                     {
                         Schedule<EnemyDeath>().enemy = enemy;
+
+                        // this fucking SUCKS
                         player.Bounce(2);
                     }
                     else
                     {
+                        // this ALSO fucking sucks...
                         player.Bounce(7);
                     }
                 }
                 else
                 {
                     Schedule<EnemyDeath>().enemy = enemy;
+
+                    // DIE!!!!!!
                     player.Bounce(2);
                 }
             }
             else
             {
-                Schedule<PlayerDeath>();
+                // what happens if player is NOT above the enemy?
             }
         }
     }
