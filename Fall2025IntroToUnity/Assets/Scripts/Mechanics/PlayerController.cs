@@ -77,10 +77,7 @@ namespace Platformer.Mechanics
 
         protected override void Update()
         {
-            if (controlEnabled)
-            { moveSide2Side(); }
-            else
-            { move.x = 0; }
+            
             base.Update();
             UpdateJumpState();
 
