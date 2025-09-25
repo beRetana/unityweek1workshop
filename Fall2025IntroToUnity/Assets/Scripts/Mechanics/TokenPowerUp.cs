@@ -14,6 +14,8 @@ namespace Platformer.Mechanics
         
         protected override void OnPlayerEnter(PlayerController player)
         {
+            base.OnPlayerEnter(player);
+
             // What happens when the player collects this power-up?
             // Can we change speed or/and jump height?
         }

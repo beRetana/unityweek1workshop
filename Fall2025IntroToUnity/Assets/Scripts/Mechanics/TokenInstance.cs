@@ -47,6 +47,11 @@ namespace Platformer.Mechanics
 
         protected virtual void OnPlayerEnter(PlayerController player)
         {
+            BasicTokenBehaviour(player);
+        }
+
+        protected void BasicTokenBehaviour(PlayerController player)
+        {
             if (collected) return;
             //disable the gameObject and remove it from the controller update list.
             frame = 0;
