@@ -69,8 +69,6 @@ namespace Platformer.Mechanics
             
             m_MoveAction.Enable();
             m_JumpAction.Enable();
-
-            
         }
 
         /* HELP ME! */
