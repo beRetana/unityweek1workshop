@@ -45,7 +45,7 @@ namespace Platformer.Mechanics
             if (player != null) OnPlayerEnter(player);
         }
 
-        void OnPlayerEnter(PlayerController player)
+        protected virtual void OnPlayerEnter(PlayerController player)
         {
             if (collected) return;
             //disable the gameObject and remove it from the controller update list.
