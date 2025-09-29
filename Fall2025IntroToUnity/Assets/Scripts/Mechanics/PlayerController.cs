@@ -7,6 +7,8 @@ using Platformer.Model;
 using Platformer.Core;
 using UnityEngine.InputSystem;
 
+
+
 namespace Platformer.Mechanics
 {
     /// <summary>
@@ -147,5 +149,18 @@ namespace Platformer.Mechanics
             InFlight,
             Landed
         }
+
+        public void win_coroutine()
+        {
+            StartCoroutine(Delayed_win());
+        }
+
+        private IEnumerator Delayed_win()
+        {
+            yield return new WaitForSeconds(2f);
+
+            SceneManager.LoadScene("win");
+        }
     }
+    
 }

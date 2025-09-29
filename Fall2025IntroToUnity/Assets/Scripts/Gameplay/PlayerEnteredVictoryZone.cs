@@ -2,6 +2,7 @@ using Platformer.Core;
 using Platformer.Mechanics;
 using Platformer.Model;
 
+
 namespace Platformer.Gameplay
 {
 
@@ -19,6 +20,9 @@ namespace Platformer.Gameplay
         {
             model.player.animator.SetTrigger("victory");
             model.player.controlEnabled = false;
+            model.player.win_coroutine();
         }
+
+        
     }
 }
