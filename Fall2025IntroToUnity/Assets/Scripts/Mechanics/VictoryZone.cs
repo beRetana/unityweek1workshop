@@ -9,6 +9,14 @@ namespace Platformer.Mechanics
     /// </summary>
     public class VictoryZone : MonoBehaviour
     {
-        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            var player = other.GetComponent<PlayerController>();
+
+            if (player != null)
+            {
+                var event_victory = Schedule<PlayerEnteredVictoryZone>();
+            }
+        }
     }
 }

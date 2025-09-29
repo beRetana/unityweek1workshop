@@ -20,11 +20,8 @@ namespace Platformer.Mechanics
             if (p != null) // get them used to this typing 
             {
 
-                Debug.LogError($"IDIOT...");
-                /*
                 var ev = Schedule<PlayerEnteredDeathZone>();
-                ev.deathzone = this;
-                */
+                //ev.deathzone = this;
             }
         }
     }
