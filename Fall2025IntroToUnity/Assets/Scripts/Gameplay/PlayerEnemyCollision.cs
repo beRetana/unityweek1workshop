@@ -23,7 +23,9 @@ namespace Platformer.Gameplay
             // i hate using var. it makes code harder to read.
             // hmmm
 
-            if (false)
+            bool willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
+
+            if (willHurtEnemy)
             {
                 var enemyHealth = enemy.GetComponent<Health>();
                 if (enemyHealth != null)
@@ -52,7 +54,7 @@ namespace Platformer.Gameplay
             }
             else
             {
-                // what happens if player is NOT above the enemy?
+                Schedule<PlayerDeath>();
             }
         }
     }

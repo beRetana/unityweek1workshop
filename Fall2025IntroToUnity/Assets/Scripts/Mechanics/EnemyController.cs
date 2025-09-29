@@ -34,7 +34,14 @@ namespace Platformer.Mechanics
         // what happens when the player collides with the enemy?
         void OnCollisionEnter2D(Collision2D collision)
         {
-            
+        
+            var player = collision.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                var collide_event = Schedule<PlayerEnemyCollision>();
+                collide_event.player = player;
+                collide_event.enemy = this;
+            }
         }
 
         void Update()
