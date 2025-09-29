@@ -11,7 +11,6 @@ namespace Platformer.Gameplay
     /// <typeparam name="PlayerEnteredVictoryZone"></typeparam>
     public class PlayerEnteredVictoryZone : Simulation.Event<PlayerEnteredVictoryZone>
     {
-        public VictoryZone victoryZone;
 
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
