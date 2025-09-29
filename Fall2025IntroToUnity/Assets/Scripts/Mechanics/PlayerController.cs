@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
-        public bool controlEnabled = true;
+        public bool controlEnabled = false;
 
         bool jump;
         Vector2 move;
