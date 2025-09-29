@@ -21,10 +21,10 @@ namespace Platformer.Mechanics
             {
 
                 Debug.LogError($"IDIOT...");
-                /*
+                
                 var ev = Schedule<PlayerEnteredDeathZone>();
                 ev.deathzone = this;
-                */
+                
             }
         }
     }
